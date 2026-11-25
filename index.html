@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAOP 6 YOGYAKARTA — Panduan & Estimasi Jadwal Kereta Api (GAPEKA 2026)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER: 1/4 Teks Diam (Kiri) + 3/4 Running Text (Kanan) + Hamburger Menu -->
+    <header class="top-header">
+        <div class="header-static">
+            <span class="pulse-dot"></span>
+            <span id="static-header-text">DAOP 6 YK</span>
+        </div>
+        
+        <div class="header-marquee">
+            <div class="marquee-track" id="running-header-text">
+                <span>Panduan Estimasi Jadwal Perjalanan Kereta Api Daop 6 Yogyakarta • Berlaku efektif mulai 1 Desember 2026 sesuai GAPEKA 2026 (DJKA / PT KAI) • Informasi bersifat acuan perencanaan, tetap periksa tiket & papan informasi resmi stasiun.</span>
+                <span>Panduan Estimasi Jadwal Perjalanan Kereta Api Daop 6 Yogyakarta • Berlaku efektif mulai 1 Desember 2026 sesuai GAPEKA 2026 (DJKA / PT KAI) • Informasi bersifat acuan perencanaan, tetap periksa tiket & papan informasi resmi stasiun.</span>
+            </div>
+        </div>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Buka Menu Navigasi" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <!-- OVERLAY & DRAWER HAMBURGER MENU -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <nav class="nav-drawer" id="nav-drawer" aria-label="Menu Utama">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <span class="brand-tag">PANDUAN LINTAS GAPEKA 2026</span>
+                <h3>DAOP 6 YK</h3>
+            </div>
+            <button class="close-drawer" id="close-drawer" aria-label="Tutup Menu">&times;</button>
+        </div>
+
+        <ul class="nav-list">
+            <li>
+                <button class="nav-item active" data-target="home">
+                    <span class="nav-icon">🏠</span>
+                    <div class="nav-text">
+                        <strong>Home / Beranda</strong>
+                        <small>Tampilan utama & informasi GAPEKA 2026</small>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-item" data-target="jadwal">
+                    <span class="nav-icon">⏱️</span>
+                    <div class="nav-text">
+                        <strong>Jadwal Kereta Api</strong>
+                        <small>Simulasi & tabel 24 jam GAPEKA 2026</small>
+                    </div>
+                </button>
+            </li>
+            
+            <li>
+                <button class="nav-item" data-target="peta">
+                    <span class="nav-icon">🛤</span>
+                    <div class="nav-text">
+                        <strong>Stasiun Daop 6</strong>
+                        <small>Daftar 36 stasiun & status database</small>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-item" data-target="jaringan">
+                    <span class="nav-icon">🗺️</span>
+                    <div class="nav-text">
+                        <strong>Peta Jaringan Rel</strong>
+                        <small>Visualisasi lintas utama & percabangan di DAOP VI</small>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <a href="https://booking.kai.id" target="_blank" rel="noopener noreferrer" class="nav-item nav-external">
+                    <span class="nav-icon">🎫</span>
+                    <div class="nav-text">
+                        <strong>Cari & Pesan Tiket <span class="ext-badge">↗</span></strong>
+                        <small>Layanan resmi booking.kai.id</small>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <button class="nav-item" data-target="audio">
+                    <span class="nav-icon">🔔</span>
+                    <div class="nav-text">
+                        <strong>Bel & Lagu Stasiun</strong>
+                        <small>Playlist audio kedatangan & bel peron</small>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-item" data-target="berita">
+                    <span class="nav-icon">📰</span>
+                    <div class="nav-text">
+                        <strong>Berita & Info Lintas</strong>
+                        <small>Pengumuman operasi & GAPEKA 2026</small>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button class="nav-item" data-target="masukan">
+                    <span class="nav-icon">💬</span>
+                    <div class="nav-text">
+                        <strong>Kritik & Saran</strong>
+                        <small>Lapor koreksi jadwal & usulan fitur</small>
+                    </div>
+                </button>
+            </li>
+        </ul>
+
+        <div class="drawer-footer">
+            <div class="live-clock-box">
+                <span id="drawer-date">Rabu, 25 Nov 2026</span>
+                <strong id="drawer-clock">00:00:00 WIB</strong>
+            </div>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-container">
+
+        <!-- HALAMAN 1: HOME / BERANDA -->
+        <section id="section-home" class="page-section active">
+            <div class="hero-card">
+                <div class="hero-top-row">
+                    <div class="hero-badge">WILAYAH OPERASI VI YOGYAKARTA • GAPEKA 2026</div>
+                    <div class="hero-live-clock">
+                        <span class="dot"></span>
+                        <span id="home-date" class="clock-date-inline">Rabu, 25 Nov 2026</span>
+                        <span class="clock-sep">|</span>
+                        <span><span id="home-clock">00:00:00</span> WIB</span>
+                    </div>
+                </div>
+
+                <h1 class="hero-title">Panduan Jadwal & Simulasi Lintas Kereta Api</h1>
+                <p class="hero-subtitle">
+                    Sistem informasi mandiri untuk memeriksa estimasi jadwal perjalanan kereta api penumpang, komuter, bandara, hingga angkutan barang yang berhenti, berangkat awal, berjalan langsung, maupun terminus di stasiun-stasiun wilayah Daop 6 Yogyakarta.
+                </p>
+
+                <!-- KOTAK PENCARIAN PINTAR DI BERANDA (TARUH DI DALAM .hero-card) -->
+                <div class="home-search-box">
+                    <div class="home-search-input-wrap">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="text" 
+                            id="home-universal-search" 
+                            placeholder="Cari stasiun (cth: Yogyakarta, KT, Solo) atau nama/nomor KA (cth: Argo Lawu, KRL, 105)..."
+                            autocomplete="off"
+                        >
+                        <button type="button" id="home-search-clear" class="search-clear-btn hidden" aria-label="Hapus pencarian">&times;</button>
+                    </div>
+                    <!-- Dropdown Hasil Pencarian Instan -->
+                    <div id="home-search-results" class="home-search-results hidden"></div>
+                </div>
+
+                <!-- BANNER INFORMASI MASA BERLAKU & DISCLAIMER -->
+                <div class="disclaimer-banner">
+                    <span class="disclaimer-icon">📅</span>
+                    <div class="disclaimer-text">
+                        <strong>Mulai Berlaku Efektif 1 Desember 2026 (Rilis GAPEKA 2026):</strong>
+                        <span>
+                            Seluruh data perjalanan disusun sebagai <strong>estimasi dan acuan referensi</strong> berdasarkan rencana resmi <em>Grafik Perjalanan Kereta Api (GAPEKA) 2026</em> oleh DJKA Kemenhub &amp; PT KAI. Karena kondisi operasional di lintas dapat berubah sewaktu-waktu (keterlambatan, percepatan, atau kereta luar biasa), laman ini <strong>bukan acuan resmi mutlak</strong>—selalu pastikan jadwal melalui aplikasi <strong>Access by KAI</strong> atau papan informasi stasiun.
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="btn-primary" id="btn-go-jadwal">
+                        CEK JADWAL GAPEKA 2026 &rarr;
+                    </button>
+                    <button class="btn-secondary" id="btn-trigger-horn" title="Interaksi Sinyal Kereta">
+                        📯 Semboyan 35
+                    </button>
+                    <!-- File audio lokal khusus Semboyan 35 -->
+                    <audio id="s35-audio-player" src="audio/semboyan-35.mp3" preload="auto"></audio>
+                </div>
+
+                <!-- ANIMASI INTERAKTIF KERETA API MELINTAS -->
+                <div class="railway-scene" id="railway-scene">
+                    <div class="scene-sky">
+                        <div class="live-status-pill">
+                            <span class="dot"></span> ILUSTRASI LINTAS DAOP 6 • KLIK KERETA UNTUK KLAKSON
+                        </div>
+                        <div class="mount-silhouette"></div>
+                    </div>
+
+                    <!-- Sinyal Elektrik Daop 6 -->
+                    <div class="rail-signal">
+                        <div class="signal-head">
+                            <span class="light red" id="sig-red"></span>
+                            <span class="light green active" id="sig-green"></span>
+                        </div>
+                        <div class="signal-pole"></div>
+                    </div>
+
+                    <!-- Rangkaian Kereta Api Animasi -->
+                    <div class="train-wrapper" id="interactive-train" title="Klik untuk membunyikan Semboyan 35!">
+                        <!-- Lokomotif -->
+                        <div class="locomotive">
+                            <div class="loco-roof"></div>
+                            <div class="loco-cab">
+                                <div class="cab-window"></div>
+                                <div class="loco-number">CC 206</div>
+                            </div>
+                            <div class="loco-stripe"></div>
+                            <div class="headlight"></div>
+                            <div class="wheels">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <!-- Kereta Penumpang 1 -->
+                        <div class="coach">
+                            <div class="coach-windows">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <div class="coach-stripe"></div>
+                            <div class="wheels">
+                                <span></span><span></span>
+                            </div>
+                        </div>
+                        <!-- Kereta Penumpang 2 -->
+                        <div class="coach">
+                            <div class="coach-windows">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <div class="coach-stripe"></div>
+                            <div class="wheels">
+                                <span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rel & Bantalan -->
+                    <div class="rail-track"></div>
+                    <div class="rail-sleepers"></div>
+                </div>
+            </div>
+
+            <!-- RINGKASAN OPERASIONAL & AKSES CEPAT STASIUN AKTIF -->
+            <div class="home-dashboard-grid">
+                <div class="home-stat-card">
+                    <span class="stat-label">MASA BERLAKU DATA</span>
+                    <strong class="stat-value">Per 1 Des 2026</strong>
+                    <p class="stat-desc">Disusun mengikuti rencana operasional resmi GAPEKA 2026 (DJKA / PT KAI) untuk 36 titik stasiun Daop 6.</p>
+                </div>
+                <div class="home-stat-card">
+                    <span class="stat-label">PANDUAN NOMOR KA</span>
+                    <strong class="stat-value">« Ganjil | Genap »</strong>
+                    <p class="stat-desc">KA Ganjil mengarah ke Barat/Utara (« / ↑), sedangkan KA Genap mengarah ke Timur/Selatan (» / ↓).</p>
+                </div>
+                <div class="home-stat-card">
+                    <span class="stat-label">AKSES CEPAT STASIUN AKTIF</span>
+                    <div class="quick-station-chips" id="home-active-stations">
+                        <!-- Diisi otomatis oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <!-- ETALASE MENU UTAMA (AGAR USER LANGSUNG TAHU SELURUH ISI WEB) -->
+            <div class="home-features-section">
+                <div class="features-heading">
+                    <h3>Jelajahi Fasilitas & Layanan Informasi</h3>
+                    <span>Pilih salah satu menu di bawah atau gunakan tombol menu ☰ di pojok kanan atas</span>
+                </div>
+
+                <div class="features-grid">
+                    <button class="feature-nav-card" onclick="switchPage('jadwal')">
+                        <span class="f-icon">⏱️</span>
+                        <div class="f-body">
+                            <strong>Jadwal & Simulasi Lintas</strong>
+                            <p>Simulasi pergerakan KA 4 zona & tabel lengkap 24 jam GAPEKA 2026.</p>
+                        </div>
+                        <span class="f-arrow">&rarr;</span>
+                    </button>
+
+                    <button class="feature-nav-card" onclick="switchPage('peta')">
+                        <span class="f-icon">🛤️</span>
+                        <div class="f-body">
+                            <strong>Direktori 36 Stasiun</strong>
+                            <p>Daftar lengkap stasiun wilayah Daop 6 beserta status ketersediaan jadwal.</p>
+                        </div>
+                        <span class="f-arrow">&rarr;</span>
+                    </button>
+
+                    <button class="feature-nav-card" onclick="switchPage('jaringan')">
+                        <span class="f-icon">🗺️</span>
+                        <div class="f-body">
+                            <strong>Peta Skematik Jaringan Rel</strong>
+                            <p>Peta interaktif lintas utama Jenar–Kedungbanteng & 4 jalur percabangan.</p>
+                        </div>
+                        <span class="f-arrow">&rarr;</span>
+                    </button>
+
+                    <button class="feature-nav-card" onclick="switchPage('audio')">
+                        <span class="f-icon">🔔</span>
+                        <div class="f-body">
+                            <strong>Bel & Lagu Stasiun</strong>
+                            <p>Putar bel peron & lagu kedatangan khas stasiun sambil menjelajahi web.</p>
+                        </div>
+                        <span class="f-arrow">&rarr;</span>
+                    </button>
+
+                    <a href="https://booking.kai.id" target="_blank" rel="noopener noreferrer" class="feature-nav-card external">
+                        <span class="f-icon">🎫</span>
+                        <div class="f-body">
+                            <strong>Cari & Pesan Tiket KAI</strong>
+                            <p>Pemesanan tiket resmi kereta api antar kota & lokal melalui booking.kai.id.</p>
+                        </div>
+                        <span class="f-arrow">&#8599;</span>
+                    </a>
+
+                    <button class="feature-nav-card" onclick="switchPage('masukan')">
+                        <span class="f-icon">💬</span>
+                        <div class="f-body">
+                            <strong>Koreksi Jadwal & Saran</strong>
+                            <p>Laporkan pembaruan jam KA atau usulkan stasiun prioritas berikutnya.</p>
+                        </div>
+                        <span class="f-arrow">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 2: JADWAL KERETA API -->
+        <section id="section-jadwal" class="page-section">
+            <div class="section-header-bar">
+                <div>
+                    <h2>Estimasi Jadwal Perjalanan Kereta Api</h2>
+                    <p>Pilih stasiun untuk melihat simulasi urutan perjalanan dan daftar jadwal 24 jam sesuai perencanaan GAPEKA 2026.</p>
+                </div>
+                <div class="clock-widget">
+                    <span class="clock-label" id="realtime-date">RABU, 25 NOV 2026</span>
+                    <span class="clock-value" id="realtime-clock">00:00:00</span>
+                </div>
+            </div>
+
+            <!-- CATATAN ACUAN GAPEKA 2026 -->
+            <div class="disclaimer-banner compact">
+                <span class="disclaimer-icon">ℹ️</span>
+                <div class="disclaimer-text">
+                    <span>
+                        <strong>Catatan Acuan (Berlaku Mulai 1 Desember 2026):</strong> Waktu di bawah merupakan <strong>estimasi berdasarkan tabel rencana GAPEKA 2026 (DJKA / PT KAI)</strong> dan tidak mencerminkan keterlambatan atau kondisi aktual di lapangan. Gunakan hanya sebagai patokan referensi pribadi.
+                    </span>
+                </div>
+            </div>
+
+            <!-- Selector Stasiun (Diisi otomatis oleh JavaScript) -->
+            <!-- Custom Searchable Dropdown Stasiun (Urut Abjad A-Z + Ketik Cepat) -->
+            <div class="station-selector-card">
+                <label for="station-custom-trigger">PILIH STASIUN:</label>
+                <div class="custom-station-dropdown" id="custom-station-dropdown">
+                    <button type="button" class="csd-trigger" id="station-custom-trigger" aria-expanded="false">
+                        <span id="csd-selected-text">Stasiun Solo Balapan (SLO) — Aktif</span>
+                        <span class="csd-arrow">▼</span>
+                    </button>
+
+                    <div class="csd-menu hidden" id="csd-menu">
+                        <div class="csd-search-wrap">
+                            <input 
+                                type="text" 
+                                id="csd-search-input" 
+                                placeholder="Ketik nama atau kode stasiun (cth: Klaten, YK, SLO)..." 
+                                autocomplete="off"
+                            >
+                        </div>
+                        <ul class="csd-options-list" id="csd-options-list">
+                            <!-- Diisi otomatis secara alfabetis oleh JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL SIMULASI LINTAS: 1 KERETA TERAKHIR BERLALU + AKTIVITAS + 3 KERETA TERDEKAT -->
+            <div class="realtime-panel" id="realtime-panel">
+                <div class="realtime-header">
+                    <div class="realtime-title">
+                        <span class="live-indicator"></span>
+                        <h3>SIMULASI LINTAS GAPEKA 2026 DI <span id="rt-station-name">STASIUN SOLO BALAPAN</span></h3>
+                    </div>
+                    <span class="rt-update-note">Estimasi Jadwal • « Ganjil | Genap »</span>
+                </div>
+
+                <div class="realtime-grid" id="realtime-cards-container">
+                    <!-- Kartu simulasi di-render otomatis oleh JavaScript -->
+                </div>
+            </div>
+
+            <!-- KONTROL FILTER & PENCARIAN TABEL -->
+            <div class="table-controls">
+                <div class="search-box">
+                    <input type="text" id="search-ka" placeholder="Cari No. KA, Nama Kereta, Relasi, atau Kelas (cth: Gambir, Argo Lawu, KRL)...">
+                </div>
+                <div class="filter-pills" id="filter-pills">
+                    <button class="pill active" data-filter="ALL">Semua</button>
+                    <button class="pill" data-filter="BERHENTI">Berhenti</button>
+                    <button class="pill" data-filter="START">Start (Awal)</button>
+                    <button class="pill" data-filter="LANGSUNG">Berjalan Langsung</button>
+                    <button class="pill" data-filter="TERMINUS">Terminus (Akhir)</button>
+                </div>
+            </div>
+
+            <!-- TABEL JADWAL 00:00 - 23:59 -->
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>WAKTU</th>
+                                <th>NO. KA</th>
+                                <th>NAMA KERETA API</th>
+                                <th>RELASI / TUJUAN</th>
+                                <th>KELAS / LAYANAN</th>
+                                <th>KETERANGAN LINTAS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-tbody">
+                            <!-- Baris data di-render otomatis oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="empty-state" class="empty-state hidden">
+                    <p>Database jadwal untuk stasiun ini belum diinput atau tidak ditemukan hasil yang cocok.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 3: BERITA & INFO LINTAS -->
+        <section id="section-berita" class="page-section">
+            <div class="section-header-bar">
+                <div>
+                    <h2>Berita & Informasi Perjalanan</h2>
+                    <p>Pembaruan operasional, pemberlakuan GAPEKA 2026, dan panduan membaca jadwal Daop 6.</p>
+                </div>
+            </div>
+
+            <div class="news-grid">
+                <article class="news-card">
+                    <span class="news-tag">GAPEKA 2026</span>
+                    <h3>Pemberlakuan GAPEKA 2026 Mulai 1 Desember 2026</h3>
+                    <p>Seiring diberlakukannya Grafik Perjalanan Kereta Api (GAPEKA) 2026 oleh DJKA Kemenhub dan PT KAI pada 1 Desember 2026, laman ini dapat digunakan sebagai alat bantu pengecekan estimasi jadwal perjalanan kereta api di wilayah Daop 6 Yogyakarta.</p>
+                    <span class="news-date">Efektif 1 Desember 2026</span>
+                </article>
+
+                <article class="news-card">
+                    <span class="news-tag">DISCLAIMER ACUAN</span>
+                    <h3>Batasan Penggunaan Informasi Jadwal</h3>
+                    <p>Seluruh jam kedatangan, keberangkatan, maupun melintas langsung pada situs ini disusun dari tabel perencanaan GAPEKA 2026. Kondisi aktual di lintas dapat berubah karena kelambatan operasional atau rekayasa perjalanan, sehingga bukan merupakan rujukan resmi mutlak.</p>
+                    <span class="news-date">Catatan Pengembang</span>
+                </article>
+
+                <article class="news-card">
+                    <span class="news-tag">PANDUAN STATUS</span>
+                    <h3>Keterangan Status Perjalanan pada Papan Jadwal</h3>
+                    <p><strong>BERHENTI:</strong> KA berhenti untuk naik/turun penumpang. <strong>START:</strong> Keberangkatan awal dari stasiun tersebut. <strong>LANGSUNG:</strong> KA melintas tanpa berhenti (Ls). <strong>TERMINUS:</strong> Stasiun tujuan akhir perjalanan KA.</p>
+                    <span class="news-date">Panduan Pengguna</span>
+                </article>
+            </div>
+
+        </section>
+
+        <!-- HALAMAN 4: PETA KORIDOR / DIREKTORI STASIUN DAOP 6 -->
+        <section id="section-peta" class="page-section">
+            <div class="section-header-bar">
+                <div>
+                    <h2>Direktori & Koridor Stasiun Wilayah Daop 6</h2>
+                    <p>Cari, saring, atau urutkan 36 stasiun wilayah Daop 6 Yogyakarta untuk membuka estimasi jadwal perjalanannya.</p>
+                </div>
+            </div>
+
+            <!-- Toolbar Kontrol Stasiun Daop 6 -->
+            <div class="corridor-controls-card">
+                <div class="cc-top-row">
+                    <div class="cc-search-box">
+                        <input type="text" id="corridor-search-input" placeholder="Cari nama atau kode stasiun (cth: Lempuyangan, LPN, Sragen)...">
+                    </div>
+                    <div class="cc-sort-box">
+                        <label for="corridor-sort-select">URUTKAN:</label>
+                        <select id="corridor-sort-select">
+                            <option value="ACTIVE_AZ">Database Aktif Duluan (A–Z)</option>
+                            <option value="NAME_AZ">Abjad Nama Stasiun (A–Z)</option>
+                            <option value="NAME_ZA">Abjad Nama Stasiun (Z–A)</option>
+                            <option value="CLASS_HIERARCHY">Hierarki Kelas Stasiun (Besar → III)</option>
+                            <option value="ROUTE_ORDER">Urutan Lintas Rel (Barat → Timur)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-pills" id="corridor-status-pills">
+                    <button class="pill active" data-status="ALL">Semua Stasiun (36)</button>
+                    <button class="pill" data-status="ACTIVE">Database Aktif</button>
+                    <button class="pill" data-status="SOON">Segera Hadir</button>
+                </div>
+            </div>
+
+            <div class="corridor-list" id="corridor-list">
+                <!-- Diisi otomatis dari daftar stasiun -->
+            </div>
+        </section>
+
+        <!-- HALAMAN 4B: PETA JARINGAN REL DAOP 6 YOGYAKARTA -->
+        <section id="section-jaringan" class="page-section">
+            <div class="section-header-bar">
+                <div>
+                    <h2>Peta Jaringan Rel Wilayah Daop 6 Yogyakarta</h2>
+                    <p>Visualisasi skematik lintas utama Barat–Timur (Jenar – Kedungbanteng) beserta 4 jalur percabangan aktif.</p>
+                </div>
+            </div>
+
+            <!-- Legenda Kelas Stasiun & Warna Lintas -->
+            <div class="network-legend-bar">
+                <div class="legend-group">
+                    <span class="legend-title">HIERARKI KELAS:</span>
+                    <span class="legend-chip"><i class="dot-besar"></i> Stasiun Besar (A/B/C)</span>
+                    <span class="legend-chip"><i class="dot-kelas1"></i> Kelas I</span>
+                    <span class="legend-chip"><i class="dot-kelas2"></i> Kelas II</span>
+                    <span class="legend-chip"><i class="dot-kelas3"></i> Kelas III / Non-Kelas</span>
+                </div>
+                <div class="legend-group">
+                    <span class="legend-title">JALUR LINTAS:</span>
+                    <span class="legend-chip"><span class="line-sample main"></span> Lintas Utama</span>
+                    <span class="legend-chip"><span class="line-sample airport"></span> Cabang Bandara (YIA / SMO)</span>
+                    <span class="legend-chip"><span class="line-sample north"></span> Cabang Utara (Gundih)</span>
+                    <span class="legend-chip"><span class="line-sample south"></span> Cabang Wonogiri</span>
+                </div>
+            </div>
+
+            <!-- Kanvas Peta Skematik SVG (Bisa di-scroll horizontal di layar HP) -->
+            <div class="network-map-card">
+                <div class="network-scroll-hint">↔ Geser peta ke kanan/kiri pada layar kecil • Klik titik stasiun untuk melihat detail & jadwal</div>
+                <div class="network-svg-wrapper" id="network-svg-wrapper">
+                    <!-- SVG Peta Jaringan di-render otomatis oleh script.js -->
+                </div>
+            </div>
+
+            <!-- Kartu Info Detail Stasiun yang Diklik -->
+            <div class="network-detail-box" id="network-detail-box">
+                <div class="nd-info">
+                    <span class="nd-badge" id="nd-class-badge">Besar A</span>
+                    <h3 id="nd-station-name">Stasiun Yogyakarta (YK)</h3>
+                    <p id="nd-station-desc">Lintas Utama Barat–Timur • Stasiun tipe Besar A dan pusat kendali operasional wilayah tengah Daop 6.</p>
+                </div>
+                <div class="nd-actions" id="nd-actions">
+                    <button class="btn-primary" onclick="selectStationFromCorridor('YOGYAKARTA')">
+                        Lihat Jadwal Stasiun &rarr;
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- HALAMAN 5: KRITIK & SARAN -->
+        <section id="section-masukan" class="page-section">
+            <div class="section-header-bar">
+                <div>
+                    <h2>Kritik, Saran & Koreksi Jadwal</h2>
+                    <p>Bantu tingkatkan akurasi data GAPEKA 2026 lintas Daop 6. Setiap masukan langsung tersimpan ke database pengelola.</p>
+                </div>
+            </div>
+
+            <div class="feedback-layout">
+                <form class="feedback-card" id="feedback-form">
+                    <!-- Honeypot anti-bot tersembunyi -->
+                    <input type="text" name="website" id="fb-honeypot" tabindex="-1" autocomplete="off" style="display:none;">
+
+                    <div class="form-row-grid">
+                        <div class="form-group">
+                            <label for="fb-nama">NAMA / INISIAL (OPSIONAL)</label>
+                            <input type="text" id="fb-nama" placeholder="Contoh: Railfans YK / Anonim" maxlength="60">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fb-kategori">KATEGORI MASUKAN</label>
+                            <select id="fb-kategori" required>
+                                <option value="Koreksi Jadwal / Jam KA">Koreksi Jadwal / Jam KA</option>
+                                <option value="Request Input Stasiun Baru">Request Input Stasiun Baru</option>
+                                <option value="Saran Fitur & Tampilan">Saran Fitur & Tampilan</option>
+                                <option value="Laporan Bug / Error">Laporan Bug / Error</option>
+                                <option value="Apresiasi & Lainnya">Apresiasi & Lainnya</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-stasiun">STASIUN TERKAIT (OPSIONAL)</label>
+                        <select id="fb-stasiun">
+                            <option value="Umum / Semua Lintas">-- Umum / Lainnya --</option>
+                            <!-- Opsi stasiun otomatis diisi dari STATION_META -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fb-pesan">DETAIL KRITIK / SARAN / KOREKSI <span style="color:#ef4444;">*</span></label>
+                        <textarea id="fb-pesan" rows="5" required placeholder="Tuliskan detail masukanmu di sini (misal: KA 105 Lodaya di Stasiun Klaten seharusnya berangkat pukul 07.35 WIB)..."></textarea>
+                    </div>
+
+                    <div id="fb-alert" class="fb-alert hidden"></div>
+
+                    <div class="form-group">
+                        <label for="fb-nama">*Sementara pemberian Kritik dan Saran hanya dapat dikirim melalui whatsApp saja. Terimakasih</label>
+                    </div>
+
+                    <div class="fb-actions">
+                        <button type="submit" class="btn-primary" id="btn-submit-feedback">
+                            Kirim ke Database
+                        </button>
+                        <button type="button" class="btn-whatsapp" id="btn-send-wa" title="Kirim langsung lewat WhatsApp">
+                            💬 Kirim via WhatsApp
+                        </button>
+                    </div>
+                </form>
+
+                <aside class="feedback-info-card">
+                    <span class="news-tag">PANDUAN LAPORAN</span>
+                    <h3>Data Apa yang Paling Membantu?</h3>
+                    <ul class="fb-tips-list">
+                        <li><strong>Koreksi Jam / Status:</strong> Cantumkan Nomor KA, Nama Stasiun, dan keterangan (Berhenti / Start / Langsung / Terminus).</li>
+                        <li><strong>Request Stasiun:</strong> Sebutkan nama stasiun di Daop 6 yang ingin diprioritaskan untuk diisi jadwalnya.</li>
+                        <li><strong>Privasi Aman:</strong> Nama bersifat opsional dan pesan tidak ditampilkan secara publik.</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <!-- HALAMAN 6: BEL & LAGU KEDATANGAN STASIUN -->
+        <section id="section-audio" class="page-section">
+            <div class="section-header-bar">
+                <div>
+                    <h2>Bel & Lagu Kedatangan Stasiun Kereta</h2>
+                    <p>Pilih dan putar melodi khas kedatangan kereta api serta bel pengumuman stasiun dari koleksi audio lokal.</p>
+                </div>
+            </div>
+
+            <div class="audio-studio-layout">
+                <!-- KIRI: NOW PLAYING CONSOLE -->
+                <div class="now-playing-card">
+                    <div class="np-top-badge">
+                        <span class="np-status-dot" id="np-status-dot"></span>
+                        <span id="np-state-label">SIAP DIPUTAR</span>
+                    </div>
+
+                    <!-- Visual Piringan / Equalizer Stasiun -->
+                    <div class="np-disc-stage">
+                        <div class="np-disc" id="np-disc">
+                            <div class="np-disc-inner">
+                                <span>🔔</span>
+                            </div>
+                        </div>
+                        <div class="np-eq-bars" id="np-eq-bars">
+                            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="np-track-meta">
+                        <span class="np-category-pill" id="np-category">BEL STASIUN</span>
+                        <h3 id="np-title">Westminster Chimes Khas Stasiun</h3>
+                        <p id="np-subtitle">Bel Pengumuman Umum • Stasiun Kereta Api</p>
+                    </div>
+
+                    <!-- Progress Bar Interaktif -->
+                    <div class="np-progress-wrap">
+                        <input type="range" id="np-seek-bar" min="0" max="100" value="0" aria-label="Durasi Lagu">
+                        <div class="np-time-row">
+                            <span id="np-current-time">00:00</span>
+                            <span id="np-duration">00:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Kontrol Utama -->
+                    <div class="np-controls">
+                        <button class="np-ctrl-btn" id="btn-audio-prev" title="Lagu Sebelumnya">⏮</button>
+                        <button class="np-play-main" id="btn-audio-play" title="Putar / Jeda">▶</button>
+                        <button class="np-ctrl-btn" id="btn-audio-next" title="Lagu Berikutnya">⏭</button>
+                        <button class="np-ctrl-btn" id="btn-audio-loop" title="Mode Ulangi (Loop)">🔁</button>
+                    </div>
+
+                    <!-- Kontrol Volume -->
+                    <div class="np-volume-box">
+                        <button class="np-vol-icon" id="btn-audio-mute" title="Bisukan / Suarakan">🔊</button>
+                        <input type="range" id="np-volume-slider" min="0" max="100" value="80" aria-label="Pengatur Volume">
+                        <span id="np-volume-text">80%</span>
+                    </div>
+
+                    <p class="np-background-note">
+                        💡 Audio akan tetap berputar otomatis saat kamu membuka menu Jadwal, Peta Jaringan, maupun halaman lainnya.
+                    </p>
+                </div>
+
+                <!-- KANAN: DAFTAR PLAYLIST LAGU LOKAL -->
+                <div class="playlist-panel-card">
+                    <div class="playlist-toolbar">
+                        <div class="playlist-search">
+                            <input type="text" id="playlist-search-input" placeholder="Cari judul lagu, stasiun, atau daerah...">
+                        </div>
+                        <div class="playlist-filter-tabs" id="playlist-filter-tabs">
+                            <button class="pl-tab active" data-cat="ALL">Semua (<span id="pl-count-all">0</span>)</button>
+                            <button class="pl-tab" data-cat="BEL">Bel Peron</button>
+                            <button class="pl-tab" data-cat="LAGU">Lagu Kedatangan</button>
+                        </div>
+                    </div>
+
+                    <div class="playlist-scroll-list" id="station-playlist-container">
+                        <!-- Daftar lagu di-render otomatis dari array STATION_AUDIO_PLAYLIST di script.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elemen Audio Tunggal Persisten -->
+            <audio id="station-audio-player" preload="metadata"></audio>
+        </section>
+
+        <!-- MINI-PLAYER MELAYANG (MUNCUL SAAT MUSIK AKTIF DI HALAMAN LAIN) -->
+        <div class="floating-mini-player hidden" id="floating-mini-player">
+            <div class="mini-eq" id="mini-eq">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="mini-info" id="mini-open-studio" title="Klik untuk membuka halaman Playlist Audio">
+                <strong id="mini-title">Westminster Chimes</strong>
+                <small id="mini-subtitle">Sedang diputar • Klik untuk buka playlist</small>
+            </div>
+            <div class="mini-actions">
+                <button id="mini-btn-play" aria-label="Putar atau Jeda">⏸</button>
+                <button id="mini-btn-next" aria-label="Lagu Berikutnya">⏭</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER WEBSITE -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left" id="footer-credit-left">
+                <strong>PANDUAN ESTIMASI JADWAL KERETA API DAOP 6 YOGYAKARTA</strong>
+                <span>Acuan referensi rencana GAPEKA 2026 (DJKA / PT KAI) • Berlaku mulai 1 Desember 2026</span>
+            </div>
+            <div class="footer-right" id="footer-credit-right">
+                <span>Bukan rujukan resmi operasional • Waktu dalam WIB (UTC+7)</span>
+                <small>&copy; 2026 - Made with ❤️ dan ☕ by Didan Arisdya Angga</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
